@@ -351,6 +351,88 @@
 
 
   
+    <article id="post-bloom-filter" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/16/bloom-filter/">bloom filter</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/16/bloom-filter/" class="archive-article-date">
+  	<time datetime="2017-09-16T20:40:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A Bloom filter is a data structure designed to tell you, rapidly and memory-efficiently, whether an element is present in a set.</p>
+<p>The price paid for this efficiency is that a Bloom filter is a probabilistic data structure: it tells us that the element either definitely is not in the set or may be in the set.</p>
+<p>The base data structure of a Bloom filter is a Bit Vector.</p>
+<p>Bloom filter 是一个数据结构，可以快速查询一个元素是否在一个集合中。</p>
+<p>它是概率性的数据结构，每次的结果会告诉，这个元素一定不再集合中，或者可能在集合中。<br>实现它的方法就是用一个bit vector</p>
+<p>使用几个hash方程来hash存入的元素，并且将这些hash值再bit vector里面标记。</p>
+<p>Bloom Filter 参数<br>Bloom filter with k hashes, m bits in the filter, and n elements that have been inserted.</p>
+<p>Bloom Filter 时间，空间<br>Given a Bloom filter with m bits and k hashing functions, both insertion and membership testing are O(k). That is, each time you want to add an element to the set or check set membership, you just need to run the element through the k hash functions and add it to the set or check those bits.</p>
+<p>Reference:<br><a href="https://llimllib.github.io/bloomfilter-tutorial/" target="_blank" rel="noopener">https://llimllib.github.io/bloomfilter-tutorial/</a><br><a href="https://en.wikipedia.org/wiki/Bloom_filter" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Bloom_filter</a><br><a href="https://blog.medium.com/what-are-bloom-filters-1ec2a50c68ff" target="_blank" rel="noopener">https://blog.medium.com/what-are-bloom-filters-1ec2a50c68ff</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">system_design</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/16/bloom-filter/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
 
 
@@ -438,6 +520,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">system_design</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

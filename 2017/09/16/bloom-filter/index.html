@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zhao-zihao.github.io">
-  <title>Archives: 2020/6 | Zihao Zhao</title>
+  <title>bloom filter | Zihao Zhao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="谢谢大家">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zihao Zhao">
-<meta property="og:url" content="https://zhao-zihao.github.io/archives/2020/06/index.html">
+  <meta name="description" content="A Bloom filter is a data structure designed to tell you, rapidly and memory-efficiently, whether an element is present in a set. The price paid for this efficiency is that a Bloom filter is a probabil">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bloom filter">
+<meta property="og:url" content="https://zhao-zihao.github.io/2017/09/16/bloom-filter/index.html">
 <meta property="og:site_name" content="Zihao Zhao">
-<meta property="og:description" content="谢谢大家">
+<meta property="og:description" content="A Bloom filter is a data structure designed to tell you, rapidly and memory-efficiently, whether an element is present in a set. The price paid for this efficiency is that a Bloom filter is a probabil">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-09-16T20:40:20.000Z">
+<meta property="article:modified_time" content="2021-01-16T21:41:37.834Z">
 <meta property="article:author" content="Zihao Zhao">
+<meta property="article:tag" content="system_design">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Zihao Zhao" type="application/atom+xml">
@@ -132,49 +135,179 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-bloom-filter" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/28/service-discovery/" class="archive-article-date">
-  	<time datetime="2020-06-28T17:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/28/service-discovery/">service discovery</a>
+    <h1 class="article-title" itemprop="name">
+      bloom filter
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2017/09/16/bloom-filter/" class="archive-article-date">
+  	<time datetime="2017-09-16T20:40:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A Bloom filter is a data structure designed to tell you, rapidly and memory-efficiently, whether an element is present in a set.</p>
+<p>The price paid for this efficiency is that a Bloom filter is a probabilistic data structure: it tells us that the element either definitely is not in the set or may be in the set.</p>
+<p>The base data structure of a Bloom filter is a Bit Vector.</p>
+<p>Bloom filter 是一个数据结构，可以快速查询一个元素是否在一个集合中。</p>
+<p>它是概率性的数据结构，每次的结果会告诉，这个元素一定不再集合中，或者可能在集合中。<br>实现它的方法就是用一个bit vector</p>
+<p>使用几个hash方程来hash存入的元素，并且将这些hash值再bit vector里面标记。</p>
+<p>Bloom Filter 参数<br>Bloom filter with k hashes, m bits in the filter, and n elements that have been inserted.</p>
+<p>Bloom Filter 时间，空间<br>Given a Bloom filter with m bits and k hashing functions, both insertion and membership testing are O(k). That is, each time you want to add an element to the set or check set membership, you just need to run the element through the k hash functions and add it to the set or check those bits.</p>
+<p>Reference:<br><a href="https://llimllib.github.io/bloomfilter-tutorial/" target="_blank" rel="noopener">https://llimllib.github.io/bloomfilter-tutorial/</a><br><a href="https://en.wikipedia.org/wiki/Bloom_filter" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Bloom_filter</a><br><a href="https://blog.medium.com/what-are-bloom-filters-1ec2a50c68ff" target="_blank" rel="noopener">https://blog.medium.com/what-are-bloom-filters-1ec2a50c68ff</a></p>
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>打赏，不存在的<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">system_design</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zhao-zihao.github.io/2017/09/16/bloom-filter/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/06/28/service-discovery/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          service discovery
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -197,8 +330,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
