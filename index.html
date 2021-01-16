@@ -371,14 +371,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>A Bloom filter is a data structure designed to tell you, rapidly and memory-efficiently, whether an element is present in a set.</p>
+        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>A Bloom filter is a data structure designed to tell you, rapidly and memory-efficiently, whether an element is present in a set.</p>
 <p>The price paid for this efficiency is that a Bloom filter is a probabilistic data structure: it tells us that the element either definitely is not in the set or may be in the set.</p>
 <p>The base data structure of a Bloom filter is a Bit Vector.</p>
 <p>Bloom filter 是一个数据结构，可以快速查询一个元素是否在一个集合中。</p>
 <p>它是概率性的数据结构，每次的结果会告诉，这个元素一定不再集合中，或者可能在集合中。<br>实现它的方法就是用一个bit vector</p>
 <p>使用几个hash方程来hash存入的元素，并且将这些hash值再bit vector里面标记。</p>
-<p>Bloom Filter 参数<br>Bloom filter with k hashes, m bits in the filter, and n elements that have been inserted.</p>
-<p>Bloom Filter 时间，空间<br>Given a Bloom filter with m bits and k hashing functions, both insertion and membership testing are O(k). That is, each time you want to add an element to the set or check set membership, you just need to run the element through the k hash functions and add it to the set or check those bits.</p>
+<h2 id="Bloom-Filter-参数"><a href="#Bloom-Filter-参数" class="headerlink" title="Bloom Filter 参数"></a>Bloom Filter 参数</h2><p>Bloom filter with <code>k hashes</code>, <code>m bits</code> in the filter, and <code>n elements</code> that have been inserted.</p>
+<h2 id="Bloom-Filter-时间，空间"><a href="#Bloom-Filter-时间，空间" class="headerlink" title="Bloom Filter 时间，空间"></a>Bloom Filter 时间，空间</h2><p>Given a Bloom filter with m bits and k hashing functions, both insertion and membership testing are O(k). That is, each time you want to add an element to the set or check set membership, you just need to run the element through the k hash functions and add it to the set or check those bits.</p>
 <p>Reference:<br><a href="https://llimllib.github.io/bloomfilter-tutorial/" target="_blank" rel="noopener">https://llimllib.github.io/bloomfilter-tutorial/</a><br><a href="https://en.wikipedia.org/wiki/Bloom_filter" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Bloom_filter</a><br><a href="https://blog.medium.com/what-are-bloom-filters-1ec2a50c68ff" target="_blank" rel="noopener">https://blog.medium.com/what-are-bloom-filters-1ec2a50c68ff</a></p>
 
       
@@ -404,6 +404,99 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/09/16/bloom-filter/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-browser-storage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/08/browser-storage/">browser storage</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/08/browser-storage/" class="archive-article-date">
+  	<time datetime="2017-09-08T23:42:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="浏览器如何存储信息？"><a href="#浏览器如何存储信息？" class="headerlink" title="浏览器如何存储信息？"></a>浏览器如何存储信息？</h3><p>使用cookie 和 localstorage</p>
+<h3 id="那个是永久存储？"><a href="#那个是永久存储？" class="headerlink" title="那个是永久存储？"></a>那个是永久存储？</h3><p>都可以永久储存，但是cookies可以set expire date</p>
+<h3 id="最大的不同"><a href="#最大的不同" class="headerlink" title="最大的不同"></a>最大的不同</h3><p>localStorage stays on the client, while cookies are sent with the HTTP header.</p>
+<h3 id="cookie-会被浏览器自动删除，通常存在以下几种原因："><a href="#cookie-会被浏览器自动删除，通常存在以下几种原因：" class="headerlink" title="cookie 会被浏览器自动删除，通常存在以下几种原因："></a>cookie 会被浏览器自动删除，通常存在以下几种原因：</h3><ul>
+<li>会话 cookie (Session cookiie) 在会话结束时（浏览器关闭）会被删除</li>
+<li>持久化 cookie（Persistent cookie）在到达失效日期时会被删除</li>
+<li>如果浏览器中的 cookie 数量达到限制，那么 cookie 会被删除以为新建的 cookie 创建空间。</li>
+</ul>
+<p><strong>Note:</strong></p>
+<ul>
+<li>没有设置 expires 选项时，cookie 的生命周期仅限于当前会话中，关闭浏览器意味着这次会话的结束，所以会话 cookie 仅存在于浏览器打开状态之下。</li>
+<li>Cookie 会自动出现在client 和 server之间的请求中，以header的形式。</li>
+</ul>
+<h3 id="Cookies-and-local-storage-serve-different-purposes"><a href="#Cookies-and-local-storage-serve-different-purposes" class="headerlink" title="Cookies and local storage serve different purposes."></a>Cookies and local storage serve different purposes.</h3><p>Cookies are primarily for reading <strong>server-side</strong><br>local storage can only be read by the <strong>client-side</strong>.<br>So the question is, in your app, who needs this data — the client or the server?</p>
+<h3 id="Size"><a href="#Size" class="headerlink" title="Size"></a>Size</h3><ul>
+<li>Cookies give you a limit of 4096 bytes (4095, actually) - its per cookie.</li>
+<li>Local Storage is as big as 5MB per domain.</li>
+</ul>
+<p>localStorage is an implementation of the Storage Interface. It stores data with no expiration date, and gets cleared only through JavaScript, or clearing the Browser Cache / Locally Stored Data - unlike cookie expiry.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h3><p><a href="https://stackoverflow.com/questions/3220660/local-storage-vs-cookies" target="_blank" rel="noopener">https://stackoverflow.com/questions/3220660/local-storage-vs-cookies</a><br><a href="http://bubkoo.com/2014/04/21/http-cookies-explained/" target="_blank" rel="noopener">http://bubkoo.com/2014/04/21/http-cookies-explained/</a><br><a href="http://cuyu.github.io/web/2017/08/01/%E4%BD%BF%E7%94%A8cookie%E5%AE%9E%E7%8E%B0%E9%A1%B5%E9%9D%A2%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95" target="_blank" rel="noopener">http://cuyu.github.io/web/2017/08/01/%E4%BD%BF%E7%94%A8cookie%E5%AE%9E%E7%8E%B0%E9%A1%B5%E9%9D%A2%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">front-end</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/08/browser-storage/">展开全文 >></a>
         </p>
       
 
@@ -523,6 +616,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">system_design</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">front-end</a>
               </li>
             
             <div class="clearfix"></div>
