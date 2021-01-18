@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zhao-zihao.github.io">
-  <title>哲学 | Zihao Zhao</title>
+  <title>Distributed Transaction - basic theory and Application scenario | Zihao Zhao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2020宅家一年，读了些哲学书，感受到一个人如果不是宗教的，那必定是哲学的。哲学对于一个人的心态是如此重要。哲学一定是实践的，言行合一是哲学家和一般人最大的区别。中国的哲学是比喻论证，西方的哲学是逻辑推理。中国的哲学倾向于无限，西方的哲学倾向于有限。老子是出世的，孔子是入世的，尼采是痛苦的。艺术来源于痛苦，哲学来源于痛苦。这么看来，理解痛苦是如此的重要。 控制情绪，自律和自由是密不可分的。我们总是">
+  <meta name="description" content="基础理论强一致性、弱一致性、最终一致性强一致性任何一次读都能读到某个数据的最近一次写的数据。系统中的所有进程，看到的操作顺序，都和全局时钟下的顺序一致。简言之，在任意时刻，所有节点中的数据是一样的。 弱一致性数据更新后，如果能容忍后续的访问只能访问到部分或者全部访问不到，则是弱一致性。 最终一致性不保证在任意时刻任意节点上的同一份数据都是相同的，但是随着时间的迁移，不同节点上的同一份数据总是在向趋">
 <meta property="og:type" content="article">
-<meta property="og:title" content="哲学">
-<meta property="og:url" content="https://zhao-zihao.github.io/2021/01/16/%E5%93%B2%E5%AD%A6/index.html">
+<meta property="og:title" content="Distributed Transaction - basic theory and Application scenario">
+<meta property="og:url" content="https://zhao-zihao.github.io/2021/01/18/Distributed-Transaction-basic-theory-and-Application-scenario/index.html">
 <meta property="og:site_name" content="Zihao Zhao">
-<meta property="og:description" content="2020宅家一年，读了些哲学书，感受到一个人如果不是宗教的，那必定是哲学的。哲学对于一个人的心态是如此重要。哲学一定是实践的，言行合一是哲学家和一般人最大的区别。中国的哲学是比喻论证，西方的哲学是逻辑推理。中国的哲学倾向于无限，西方的哲学倾向于有限。老子是出世的，孔子是入世的，尼采是痛苦的。艺术来源于痛苦，哲学来源于痛苦。这么看来，理解痛苦是如此的重要。 控制情绪，自律和自由是密不可分的。我们总是">
+<meta property="og:description" content="基础理论强一致性、弱一致性、最终一致性强一致性任何一次读都能读到某个数据的最近一次写的数据。系统中的所有进程，看到的操作顺序，都和全局时钟下的顺序一致。简言之，在任意时刻，所有节点中的数据是一样的。 弱一致性数据更新后，如果能容忍后续的访问只能访问到部分或者全部访问不到，则是弱一致性。 最终一致性不保证在任意时刻任意节点上的同一份数据都是相同的，但是随着时间的迁移，不同节点上的同一份数据总是在向趋">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-16T22:06:15.000Z">
-<meta property="article:modified_time" content="2021-01-16T22:43:35.299Z">
+<meta property="article:published_time" content="2021-01-18T05:07:32.000Z">
+<meta property="article:modified_time" content="2021-01-18T05:59:16.343Z">
 <meta property="article:author" content="Zihao Zhao">
-<meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Zihao Zhao" type="application/atom+xml">
@@ -141,28 +140,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-哲学" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Distributed-Transaction-basic-theory-and-Application-scenario" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      哲学
+      Distributed Transaction - basic theory and Application scenario
     </h1>
   
 
         
-        <a href="/2021/01/16/%E5%93%B2%E5%AD%A6/" class="archive-article-date">
-  	<time datetime="2021-01-16T22:06:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-16</time>
+        <a href="/2021/01/18/Distributed-Transaction-basic-theory-and-Application-scenario/" class="archive-article-date">
+  	<time datetime="2021-01-18T05:07:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>2020宅家一年，读了些哲学书，感受到一个人如果不是宗教的，那必定是哲学的。<br>哲学对于一个人的心态是如此重要。<br>哲学一定是实践的，言行合一是哲学家和一般人最大的区别。<br>中国的哲学是比喻论证，西方的哲学是逻辑推理。<br>中国的哲学倾向于无限，西方的哲学倾向于有限。<br>老子是出世的，孔子是入世的，尼采是痛苦的。<br>艺术来源于痛苦，哲学来源于痛苦。这么看来，理解痛苦是如此的重要。</p>
-<p>控制情绪，自律和自由是密不可分的。<br>我们总是讲自由，但自由又是什么呢？</p>
+        <h1 id="基础理论"><a href="#基础理论" class="headerlink" title="基础理论"></a>基础理论</h1><h2 id="强一致性、弱一致性、最终一致性"><a href="#强一致性、弱一致性、最终一致性" class="headerlink" title="强一致性、弱一致性、最终一致性"></a>强一致性、弱一致性、最终一致性</h2><h3 id="强一致性"><a href="#强一致性" class="headerlink" title="强一致性"></a>强一致性</h3><p>任何一次读都能读到某个数据的最近一次写的数据。系统中的所有进程，看到的操作顺序，都和全局时钟下的顺序一致。简言之，在任意时刻，所有节点中的数据是一样的。</p>
+<h3 id="弱一致性"><a href="#弱一致性" class="headerlink" title="弱一致性"></a>弱一致性</h3><p>数据更新后，如果能容忍后续的访问只能访问到部分或者全部访问不到，则是弱一致性。</p>
+<h3 id="最终一致性"><a href="#最终一致性" class="headerlink" title="最终一致性"></a>最终一致性</h3><p>不保证在任意时刻任意节点上的同一份数据都是相同的，但是随着时间的迁移，不同节点上的同一份数据总是在向趋同的方向变化。简单说，就是在一段时间后，节点间的数据会最终达到一致状态。</p>
+<h2 id="CAP-原则"><a href="#CAP-原则" class="headerlink" title="CAP 原则"></a>CAP 原则</h2><p>CAP 原则又称 CAP 定理，指的是在一个分布式系统中， Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），三者不可得兼。<br>一致性（C）：<br>在分布式系统中的所有数据备份，在同一时刻是否同样的值。（等同于所有节点访问同一份最新的数据副本）<br>可用性（A）：<br>在集群中一部分节点故障后，集群整体是否还能响应客户端的读写请求。（对数据更新具备高可用性）<br>分区容错性（P）：<br>以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在 C 和 A 之间做出选择。<br>CAP 原则的精髓就是要么 AP，要么 CP，要么 AC，但是不存在 CAP。如果在某个分布式系统中数据无副本， 那么系统必然满足强一致性条件， 因为只有独一数据，不会出现数据不一致的情况，此时 C 和 P 两要素具备，但是如果系统发生了网络分区状况或者宕机，必然导致某些数据不可以访问，此时可用性条件就不能被满足，即在此情况下获得了 CP 系统，但是 CAP 不可同时满足。</p>
+<h2 id="BASE-理论"><a href="#BASE-理论" class="headerlink" title="BASE 理论"></a>BASE 理论</h2><p>BASE 理论指的是基本可用 Basically Available，软状态 Soft State，最终一致性 Eventual Consistency，核心思想是即便无法做到强一致性，但应该采用适合的方式保证最终一致性。<br>BASE，Basically Available Soft State Eventual Consistency 的简写：<br>BA：Basically Available 基本可用，分布式系统在出现故障的时候，允许损失部分可用性，即保证核心可用。<br>S：Soft State 软状态，允许系统存在中间状态，而该中间状态不会影响系统整体可用性。<br>E：Consistency 最终一致性，系统中的所有数据副本经过一定时间后，最终能够达到一致的状态。<br>BASE 理论本质上是对 CAP 理论的延伸，是对 CAP 中 AP 方案的一个补充。</p>
+<h2 id="柔性事务"><a href="#柔性事务" class="headerlink" title="柔性事务"></a>柔性事务</h2><p>不同于 ACID 的刚性事务，在分布式场景下基于 BASE 理论，就出现了柔性事务的概念。要想通过柔性事务来达到最终的一致性，就需要依赖于一些特性，这些特性在具体的方案中不一定都要满足，因为不同的方案要求不一样；但是都不满足的话，是不可能做柔性事务的。</p>
+<h2 id="幂等操作"><a href="#幂等操作" class="headerlink" title="幂等操作"></a>幂等操作</h2><p>在编程中一个幂等操作的特点是其任意多次执行所产生的影响均与一次执行的影响相同。幂等函数，或幂等方法，是指可以使用相同参数重复执行，并能获得相同结果的函数。这些函数不会影响系统状态，也不用担心重复执行会对系统造成改变。例如，支付流程中第三方支付系统告知系统中某个订单支付成功，接收该支付回调接口在网络正常的情况下无论操作多少次都应该返回成功。</p>
+<h1 id="分布式事务使用场景"><a href="#分布式事务使用场景" class="headerlink" title="分布式事务使用场景"></a>分布式事务使用场景</h1><h2 id="转账"><a href="#转账" class="headerlink" title="转账"></a>转账</h2><p>转账是最经典那的分布式事务场景，假设用户 A 使用银行 app 发起一笔跨行转账给用户 B，银行系统首先扣掉用户 A 的钱，然后增加用户 B 账户中的余额。此时就会出现 2 种异常情况：1. 用户 A 的账户扣款成功，用户 B 账户余额增加失败 2. 用户 A 账户扣款失败，用户 B 账户余额增加成功。对于银行系统来说，以上 2 种情况都是不允许发生，此时就需要分布式事务来保证转账操作的成功。</p>
+<h2 id="下单扣库存"><a href="#下单扣库存" class="headerlink" title="下单扣库存"></a>下单扣库存</h2><p>在电商系统中，下单是用户最常见操作。在下单接口中必定会涉及生成订单 id, 扣减库存等操作，对于微服务架构系统，订单 id 与库存服务一般都是独立的服务，此时就需要分布式事务来保证整个下单接口的成功。</p>
 
       
 
@@ -192,17 +198,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -253,7 +248,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://zhao-zihao.github.io/2021/01/16/%E5%93%B2%E5%AD%A6/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zhao-zihao.github.io/2021/01/18/Distributed-Transaction-basic-theory-and-Application-scenario/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,18 +262,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/01/18/Distributed-Transaction-basic-theory-and-Application-scenario/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Distributed Transaction - basic theory and Application scenario
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/01/16/color/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">color</div>
+    <a href="/2021/01/16/%E5%93%B2%E5%AD%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">哲学</div>
       <i class="icon-circle-right"></i>
     </a>
   
