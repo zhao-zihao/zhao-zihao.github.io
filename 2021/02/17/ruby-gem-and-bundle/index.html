@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zhao-zihao.github.io">
-  <title>bloom filter | Zihao Zhao</title>
+  <title>ruby gem and bundle | Zihao Zhao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DefinitionA Bloom filter is a data structure designed to tell you, rapidly and memory-efficiently, whether an element is present in a set. The price paid for this efficiency is that a Bloom filter is">
+  <meta name="description" content="Ruby management toolI prefer use rbenv to manage ruby versions.  RubyInstall a new version of ruby with rbenv, change the default ruby version to the new one.Then, we can start playing.First, the gem">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bloom filter">
-<meta property="og:url" content="https://zhao-zihao.github.io/2017/09/16/bloom-filter/index.html">
+<meta property="og:title" content="ruby gem and bundle">
+<meta property="og:url" content="https://zhao-zihao.github.io/2021/02/17/ruby-gem-and-bundle/index.html">
 <meta property="og:site_name" content="Zihao Zhao">
-<meta property="og:description" content="DefinitionA Bloom filter is a data structure designed to tell you, rapidly and memory-efficiently, whether an element is present in a set. The price paid for this efficiency is that a Bloom filter is">
+<meta property="og:description" content="Ruby management toolI prefer use rbenv to manage ruby versions.  RubyInstall a new version of ruby with rbenv, change the default ruby version to the new one.Then, we can start playing.First, the gem">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2017-09-16T20:40:20.000Z">
-<meta property="article:modified_time" content="2021-01-18T06:05:43.434Z">
+<meta property="article:published_time" content="2021-02-17T22:50:35.000Z">
+<meta property="article:modified_time" content="2021-02-17T22:57:32.859Z">
 <meta property="article:author" content="Zihao Zhao">
-<meta property="article:tag" content="technology">
+<meta property="article:tag" content="ruby">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Zihao Zhao" type="application/atom+xml">
@@ -142,35 +142,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-bloom-filter" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ruby-gem-and-bundle" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      bloom filter
+      ruby gem and bundle
     </h1>
   
 
         
-        <a href="/2017/09/16/bloom-filter/" class="archive-article-date">
-  	<time datetime="2017-09-16T20:40:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-16</time>
+        <a href="/2021/02/17/ruby-gem-and-bundle/" class="archive-article-date">
+  	<time datetime="2021-02-17T22:50:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>A Bloom filter is a data structure designed to tell you, rapidly and memory-efficiently, whether an element is present in a set.</p>
-<p>The price paid for this efficiency is that a Bloom filter is a probabilistic data structure: it tells us that the element either definitely is not in the set or may be in the set.</p>
-<p>The base data structure of a Bloom filter is a Bit Vector.</p>
-<p>Bloom filter 是一个数据结构，可以快速查询一个元素是否在一个集合中。</p>
-<p>它是概率性的数据结构，每次的结果会告诉，这个元素一定不再集合中，或者可能在集合中。<br>实现它的方法就是用一个bit vector</p>
-<p>使用几个hash方程来hash存入的元素，并且将这些hash值再bit vector里面标记。</p>
-<h2 id="Bloom-Filter-参数"><a href="#Bloom-Filter-参数" class="headerlink" title="Bloom Filter 参数"></a>Bloom Filter 参数</h2><p>Bloom filter with <code>k hashes</code>, <code>m bits</code> in the filter, and <code>n elements</code> that have been inserted.</p>
-<h2 id="Bloom-Filter-时间，空间"><a href="#Bloom-Filter-时间，空间" class="headerlink" title="Bloom Filter 时间，空间"></a>Bloom Filter 时间，空间</h2><p>Given a Bloom filter with m bits and k hashing functions, both insertion and membership testing are O(k). That is, each time you want to add an element to the set or check set membership, you just need to run the element through the k hash functions and add it to the set or check those bits.</p>
-<p>Reference:<br><a href="https://llimllib.github.io/bloomfilter-tutorial/" target="_blank" rel="noopener">https://llimllib.github.io/bloomfilter-tutorial/</a><br><a href="https://en.wikipedia.org/wiki/Bloom_filter" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Bloom_filter</a><br><a href="https://blog.medium.com/what-are-bloom-filters-1ec2a50c68ff" target="_blank" rel="noopener">https://blog.medium.com/what-are-bloom-filters-1ec2a50c68ff</a></p>
+        <h1 id="Ruby-management-tool"><a href="#Ruby-management-tool" class="headerlink" title="Ruby management tool"></a>Ruby management tool</h1><p>I prefer use <code>rbenv</code> to manage ruby versions. </p>
+<h1 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h1><p>Install a new version of ruby with rbenv, change the default ruby version to the new one.<br>Then, we can start playing.<br>First, the <code>gem</code> localtion is changed and you need to check the correctness.</p>
+<p><strong>Notice:</strong> When you changed the <code>ruby</code> version, you might need to install a <code>bundler</code> for that ruby. And the <code>bundle</code> will use your current ruby. If you go to the bundle website, it didn’t tell you how to change ruby version is used. Because it cannot.</p>
+<p>ruby -&gt; gem -&gt; bundle</p>
+<h2 id="change-ruby-version"><a href="#change-ruby-version" class="headerlink" title="change ruby version"></a>change ruby version</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;2.6.4&quot; &gt; &#x2F;Users&#x2F;zihaozhao&#x2F;.ruby-version</span><br></pre></td></tr></table></figure>
+
+<h2 id="check-gem-env"><a href="#check-gem-env" class="headerlink" title="check gem env"></a>check gem env</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ gem env</span><br><span class="line">RubyGems Environment:</span><br><span class="line">  - RUBYGEMS VERSION: 3.0.3</span><br><span class="line">  - RUBY VERSION: 2.6.4 (2019-08-28 patchlevel 104) [x86_64-darwin20]</span><br><span class="line">  - INSTALLATION DIRECTORY: &#x2F;Users&#x2F;zihaozhao&#x2F;.rbenv&#x2F;versions&#x2F;2.6.4&#x2F;lib&#x2F;ruby&#x2F;gems&#x2F;2.6.0</span><br><span class="line">  - USER INSTALLATION DIRECTORY: &#x2F;Users&#x2F;zihaozhao&#x2F;.gem&#x2F;ruby&#x2F;2.6.0</span><br><span class="line">  - RUBY EXECUTABLE: &#x2F;Users&#x2F;zihaozhao&#x2F;.rbenv&#x2F;versions&#x2F;2.6.4&#x2F;bin&#x2F;ruby</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+
+<h2 id="check-bundle-env"><a href="#check-bundle-env" class="headerlink" title="check bundle env"></a>check bundle env</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ bundle env</span><br><span class="line"></span><br><span class="line">## Environment</span><br><span class="line">Bundler       2.2.11</span><br><span class="line">  Platforms   ruby, x86_64-darwin-20</span><br><span class="line">Ruby          2.6.4p104 (2019-08-28 revision 67798) [x86_64-darwin20]</span><br><span class="line">  Full Path   &#x2F;Users&#x2F;zihaozhao&#x2F;.rbenv&#x2F;versions&#x2F;2.6.4&#x2F;bin&#x2F;ruby</span><br><span class="line">  Config Dir  &#x2F;Users&#x2F;zihaozhao&#x2F;.rbenv&#x2F;versions&#x2F;2.6.4&#x2F;etc</span><br><span class="line">RubyGems      3.0.3</span><br><span class="line">  Gem Home    &#x2F;Users&#x2F;zihaozhao&#x2F;.rbenv&#x2F;versions&#x2F;2.6.4&#x2F;lib&#x2F;ruby&#x2F;gems&#x2F;2.6.0</span><br><span class="line">  Gem Path    &#x2F;Users&#x2F;zihaozhao&#x2F;.gem&#x2F;ruby&#x2F;2.6.0:&#x2F;Users&#x2F;zihaozhao&#x2F;.rbenv&#x2F;versions&#x2F;2.6.4&#x2F;lib&#x2F;ruby&#x2F;gems&#x2F;2.6.0</span><br><span class="line">  User Home   &#x2F;Users&#x2F;zihaozhao</span><br><span class="line">  User Path   &#x2F;Users&#x2F;zihaozhao&#x2F;.gem&#x2F;ruby&#x2F;2.6.0</span><br><span class="line">  Bin Dir     &#x2F;Users&#x2F;zihaozhao&#x2F;.rbenv&#x2F;versions&#x2F;2.6.4&#x2F;bin</span><br><span class="line">Tools         </span><br><span class="line">  Git         2.24.3 (Apple Git-128)</span><br><span class="line">  RVM         not installed</span><br><span class="line">  rbenv       rbenv 1.1.2</span><br><span class="line">  chruby      not installed</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>Now <code>bundle install</code> will install the gems to ruby 2.6.4.</p>
+<h2 id="ruby-structure"><a href="#ruby-structure" class="headerlink" title="ruby structure"></a>ruby structure</h2><h3 id="Let’s-see-the-different-ruby-2-4-4-and-2-6-4"><a href="#Let’s-see-the-different-ruby-2-4-4-and-2-6-4" class="headerlink" title="Let’s see the different ruby(2.4.4 and 2.6.4):"></a>Let’s see the different ruby(2.4.4 and 2.6.4):</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">🤓 versions $ tree &#x2F;Users&#x2F;zihaozhao&#x2F;.rbenv&#x2F;versions -L 3</span><br><span class="line">&#x2F;Users&#x2F;zihaozhao&#x2F;.rbenv&#x2F;versions</span><br><span class="line">├── 2.4.4</span><br><span class="line">│   ├── bin</span><br><span class="line">│   │   ├── **bundle**</span><br><span class="line">│   │   ├── bundler</span><br><span class="line">│   │   ├── erb</span><br><span class="line">│   │   ├── gem</span><br><span class="line">│   │   ├── irb</span><br><span class="line">│   │   ├── rake</span><br><span class="line">│   │   ├── rdoc</span><br><span class="line">│   │   ├── ri</span><br><span class="line">│   │   └── ruby</span><br><span class="line">│   ├── include</span><br><span class="line">│   │   └── ruby-2.4.0</span><br><span class="line">│   ├── lib</span><br><span class="line">│   │   ├── libruby.2.4.4.dylib</span><br><span class="line">│   │   ├── libruby.2.4.dylib -&gt; libruby.2.4.4.dylib</span><br><span class="line">│   │   ├── libruby.dylib -&gt; libruby.2.4.4.dylib</span><br><span class="line">│   │   ├── pkgconfig</span><br><span class="line">│   │   └── **ruby**</span><br><span class="line">│   ├── openssl</span><br><span class="line">│   │   ├── bin</span><br><span class="line">│   │   ├── include</span><br><span class="line">│   │   ├── lib</span><br><span class="line">│   │   ├── share</span><br><span class="line">│   │   └── ssl</span><br><span class="line">│   └── share</span><br><span class="line">│       ├── doc</span><br><span class="line">│       ├── man</span><br><span class="line">│       └── ri</span><br><span class="line">└── 2.6.4</span><br><span class="line">    ├── bin</span><br><span class="line">    │   ├── **bundle**</span><br><span class="line">    │   ├── bundler</span><br><span class="line">    │   ├── erb</span><br><span class="line">    │   ├── gem</span><br><span class="line">    │   ├── irb</span><br><span class="line">    │   ├── rake</span><br><span class="line">    │   ├── rdoc</span><br><span class="line">    │   ├── ri</span><br><span class="line">    │   └── ruby</span><br><span class="line">    ├── include</span><br><span class="line">    │   └── ruby-2.6.0</span><br><span class="line">    ├── lib</span><br><span class="line">    │   ├── libruby.2.6.dylib</span><br><span class="line">    │   ├── libruby.dylib -&gt; libruby.2.6.dylib</span><br><span class="line">    │   ├── pkgconfig</span><br><span class="line">    │   └── **ruby**</span><br><span class="line">    ├── openssl</span><br><span class="line">    │   ├── bin</span><br><span class="line">    │   ├── include</span><br><span class="line">    │   ├── lib</span><br><span class="line">    │   ├── share</span><br><span class="line">    │   └── ssl</span><br><span class="line">    └── share</span><br><span class="line">        ├── doc</span><br><span class="line">        ├── man</span><br><span class="line">        └── ri</span><br><span class="line"></span><br><span class="line">34 directories, 23 files</span><br></pre></td></tr></table></figure>
+
+<h3 id="Let’s-see-the-gems-in-ruby-2-6-4"><a href="#Let’s-see-the-gems-in-ruby-2-6-4" class="headerlink" title="Let’s see the gems in ruby 2.6.4:"></a>Let’s see the gems in ruby 2.6.4:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">🤓 versions $ tree  &#x2F;Users&#x2F;zihaozhao&#x2F;.rbenv&#x2F;versions&#x2F;2.6.4&#x2F;lib&#x2F;ruby&#x2F;gems&#x2F; -L 3</span><br><span class="line">&#x2F;Users&#x2F;zihaozhao&#x2F;.rbenv&#x2F;versions&#x2F;2.6.4&#x2F;lib&#x2F;ruby&#x2F;gems&#x2F;</span><br><span class="line">└── 2.6.0</span><br><span class="line">    ├── build_info</span><br><span class="line">    ├── cache</span><br><span class="line">    │   ├── bundler-2.2.11.gem</span><br><span class="line">    │   ├── did_you_mean-1.3.0.gem</span><br><span class="line">    │   ├── minitest-5.11.3.gem</span><br><span class="line">    │   ├── net-telnet-0.2.0.gem</span><br><span class="line">    │   ├── power_assert-1.1.3.gem</span><br><span class="line">    │   ├── rake-12.3.2.gem</span><br><span class="line">    │   ├── rake-13.0.3.gem</span><br><span class="line">    │   ├── test-unit-3.2.9.gem</span><br><span class="line">    │   └── xmlrpc-0.3.0.gem</span><br><span class="line">    ├── doc</span><br><span class="line">    │   ├── bundler-2.2.11</span><br><span class="line">    │   └── rake-13.0.3</span><br><span class="line">    ├── extensions</span><br><span class="line">    ├── gems</span><br><span class="line">    │   ├── bundler-1.17.2</span><br><span class="line">    │   ├── **bundler-2.2.11**</span><br><span class="line">    │   ├── did_you_mean-1.3.0</span><br><span class="line">    │   ├── irb-1.0.0</span><br><span class="line">    │   ├── minitest-5.11.3</span><br><span class="line">    │   ├── net-telnet-0.2.0</span><br><span class="line">    │   ├── power_assert-1.1.3</span><br><span class="line">    │   ├── rake-12.3.2</span><br><span class="line">    │   ├── rake-13.0.3</span><br><span class="line">    │   ├── rdoc-6.1.2</span><br><span class="line">    │   ├── test-unit-3.2.9</span><br><span class="line">    │   └── xmlrpc-0.3.0</span><br><span class="line">    └── specifications</span><br><span class="line">        ├── bundler-2.2.11.gemspec</span><br><span class="line">        ├── default</span><br><span class="line">        ├── did_you_mean-1.3.0.gemspec</span><br><span class="line">        ├── minitest-5.11.3.gemspec</span><br><span class="line">        ├── net-telnet-0.2.0.gemspec</span><br><span class="line">        ├── power_assert-1.1.3.gemspec</span><br><span class="line">        ├── rake-12.3.2.gemspec</span><br><span class="line">        ├── rake-13.0.3.gemspec</span><br><span class="line">        ├── test-unit-3.2.9.gemspec</span><br><span class="line">        └── xmlrpc-0.3.0.gemspec</span><br><span class="line"></span><br><span class="line">22 directories, 18 files</span><br></pre></td></tr></table></figure>
+
+<p>We can see we have different <code>cli</code> program we can use under <code>bin</code> folder. Install some of ruby gems can give you a new <code>cli</code>.<br>And <code>gems</code> are installed in <code>lib</code> folder. <code>Bundler</code> is just a special gem that give you new <code>cli</code>.</p>
+<p><strong>Notice:</strong> bundler-1.17.2 is the default bundler when I install ruby 2.6.4. The bundler-2.2.11 is installed by using <code>gem install bundler</code> command.</p>
 
       
 
@@ -205,7 +213,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">technology</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ruby</a>
         		</li>
       		
 		</ul>
@@ -261,7 +269,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://zhao-zihao.github.io/2017/09/16/bloom-filter/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zhao-zihao.github.io/2021/02/17/ruby-gem-and-bundle/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +283,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/06/28/service-discovery/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          service discovery
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/08/browser-storage/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">browser storage</div>
+    <a href="/2021/02/17/bundler-failed-to-build-gem-native-extension/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">bundler failed to build gem native extension</div>
       <i class="icon-circle-right"></i>
     </a>
   
